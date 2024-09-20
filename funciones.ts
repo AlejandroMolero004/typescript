@@ -32,14 +32,16 @@
     }
     f(migreatfunction)
     
-    /*type funcionstring = (a:string)=>string
+    type funcionstring = (a:string)=>string
     function funnum(fn:funcionstring){
         console.log("he recibido una funcion del tipo funcionstring")
     }
     let mifunnum:funcionstring=(a:string):string=>{
         return "devuelvo string"
     }
-    funnum(mifunnum)*/
+    funnum(mifunnum)
+
+
 
 
 
