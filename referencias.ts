@@ -104,7 +104,7 @@ let lucia: persona = {
     amigos: [alex, sofia]
 };
 
-/*
+
 let copiaalex=alex
 
 alex.amigos.push(sofia)
@@ -114,7 +114,7 @@ console.log(alex.nombre)
 console.log(copiaalex.nombre)
 console.log(alex.amigos[0].nombre)
 console.log(copiaalex.amigos[0].nombre)
-*/
+
 
 
 let copialexdiferente:persona={
