@@ -1,4 +1,5 @@
 /*
+EJ 1:
 Tienes un array de objetos que representan productos de una tienda. 
 Cada producto tiene las propiedades: nombre, precio, y disponible.
  Necesitas realizar las siguientes operaciones:
@@ -29,6 +30,7 @@ let nombreprecio=disponibles.map(objeto=>`Producto: ${objeto.nombre}, Precio: ${
 //console.log(nombreprecio)
 
 /*
+EJ 2:
 Tienes un array de objetos que representan libros en una librería.
 Cada libro tiene las propiedades título, autor, añoPublicacion y disponible. 
 Necesitas realizar las siguientes operaciones:
