@@ -24,16 +24,15 @@ arr.forEach(f)
 */
 
 //EJ MOSTRAR DE UN ARRAY SOLO LOS NUMERO DE INDICE PAR 
-/*arr.forEach((elem:number,i:number)=>{
+arr.forEach((elem:number,i:number)=>{
      if(i%2==0){
         console.log(elem+" "+"indice: "+i) 
      } 
-})*/
-/*
+})
+
 const f=(elem:number,i:number)=>{
     if(i%2==0){
         console.log(elem+" "+"indice: "+i) 
      } 
 }
 arr.forEach(f)
-*/
