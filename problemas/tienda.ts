@@ -96,4 +96,35 @@ let aux=almacenlibros.filter(fl)
 
 let mayusculas=(l:libro):string=>(l.titulo.toUpperCase())
 let arrmayusculas=almacenlibros.map(mayusculas)
-console.log(arrmayusculas)
+//console.log(arrmayusculas)
+
+/*
+Imagina que tienes una tienda online, 
+y deseas procesar una lista de productos. 
+Cada producto tiene un nombre, un precio, y un valor booleano que indica si está en stock.
+
+crear una nueva lista que solo contenga los productos que están en stock.
+
+Usa el método .map para aplicar un descuento del 10% a todos los productos en stock, 
+creando una nueva lista de productos con el precio actualizado.
+*/
+type producto={
+  nombre:string
+  precio:number
+  enStock:boolean
+}
+const trastero: producto[] = [
+  { nombre: "Camiseta", precio: 20, enStock: true },
+  { nombre: "Pantalón", precio: 40, enStock: false },
+  { nombre: "Zapatos", precio: 60, enStock: true },
+  { nombre: "Sombrero", precio: 50, enStock: false },
+  { nombre: "Bufanda", precio: 30, enStock: true },
+];
+let estaenstock=(p:producto)=>p.enStock
+function aplicardescuento(p:producto):number{
+  return p.precio*0.1
+} 
+const enstock=trastero.filter(estaenstock)
+console.log(enstock)
+const descuento=enstock.map(aplicardescuento)
+console.log(descuento)
