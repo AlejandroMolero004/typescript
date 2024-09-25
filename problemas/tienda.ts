@@ -99,6 +99,7 @@ let arrmayusculas=almacenlibros.map(mayusculas)
 //console.log(arrmayusculas)
 
 /*
+EJ 3:
 Imagina que tienes una tienda online, 
 y deseas procesar una lista de productos. 
 Cada producto tiene un nombre, un precio, y un valor booleano que indica si está en stock.
