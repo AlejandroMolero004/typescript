@@ -45,7 +45,7 @@ type libro={
     añoPublicacion:Date,
     disponible:boolean
 }
-let fl=(l:libro)=>(l.añoPublicacion.getFullYear()>2000 && l.disponible==true)
+const fl=(l:libro)=>(l.añoPublicacion.getFullYear()>2000 && l.disponible==true)
 
 let almacenlibros:libro[]=[
       { 
