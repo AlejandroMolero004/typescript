@@ -20,11 +20,12 @@ const maximo=numbers.reduce((acumulador,elemento)=>mayor(elemento,acumulador),0)
 //console.log(maximo)
 
 // Dado un array de valores, cuenta cuántas veces aparece cada valor en el array.
-/*
-const fruta=['manzana', 'plátano', 'naranja', 'manzana', 'naranja', 'plátano', 'manzana']
 
+const fruta=['manzana', 'plátano', 'naranja', 'manzana', 'naranja', 'plátano', 'manzana']
+const coches=["volvo","wolwagen","fiat","renault","volvo","fiat","fiat","renault"]
 const count=fruta.reduce((acumulador,fruta)=>{
-    
+    acumulador[fruta]=(acumulador[fruta]||0)+1
+    return acumulador
 },{})
 console.log(count)
-*/
+
