@@ -12,14 +12,36 @@ let pp=p.filter(par)
 let tamaño=n.map((p:string)=>p.length)
 //console.log(tamaño)
 // ej 4 
-
+type Persona={
+    name:string,
+    edad:number
+}
 let estudiante:Persona[]=[
     {name:"Alberto",edad:12},
-    {name:"Alex",edad:15},
-    {name:"Aan",edad:20}
+    {name:"Enrique",edad:15},
+    {name:"Maria",edad:20},
+    {name:"Andrea",edad:21},
+    {name:"Loredana",edad:15}
 ]
 
-let comproedad=(p:Persona)=>{return p.edad>=18}
+let comproedad=(p:Persona)=>{return p.edad>=18 && p.name.length>5}
 let nombremayoredad=estudiante.filter(comproedad).map((p)=>p.name)
 ///let nombremayoredad=mayoredad.map((p)=>p.name)
-console.log(nombremayoredad)
+//console.log(nombremayoredad)
+
+let personaelegida=estudiante.find(comproedad)
+//console.log(personaelegida)
+
+let numerosmuchos=[1,13,4,22,5,6,111,321,45]
+
+let acumulador=0
+numerosmuchos.reduce((acc,curr)=>curr>acc?curr:acc,numerosmuchos[0])
+
+// las palabras que tengan mas de cinco
+let nombre:string[]=["Bob","Alejandro","Roberto","Alex","Bertran"]
+const palabrasLargas = nombre.reduce((acc: string[], curr: string) => {
+    if (curr.length > 5) {
+        acc.push(curr);
+    }
+    return acc;
+}, []); 
