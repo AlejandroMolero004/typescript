@@ -17,11 +17,6 @@ eldoble.forEach((elem:number)=>{
 //const eldoble=ARRAY.map((n:number)=>2*n)
 
 */
-
-type Persona={
-    name:string
-    edad:number
-}
 const Personas:Persona[]=[
     {name:"Alberto",edad:12},
     {name:"Alex",edad:15},
