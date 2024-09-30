@@ -14,7 +14,8 @@ const arrdearr=[
     [1,2,3],
     [3,4],
     [3,2,3,4],
-    [2,5,4],
+    [2,5,4,3],
+    [2,5,3,3,3]
 ]
 let igualtres=(n:number)=>n==3
 let todoverdadero=(v:boolean)=>v==true
