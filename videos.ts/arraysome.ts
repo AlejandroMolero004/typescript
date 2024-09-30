@@ -5,7 +5,7 @@ en EL MOMENTO EN EL QUE LA FUNCION SE CUMPLA SE PARA y devuelve un true
 si ninguno cumple el criterio recorre todos y devuelve false
 */
 
-const arr=[1,2,3,4,5,6]
+const arrr=[1,2,3,4,5,6]
 const pala=["hola","buenos dias","mañana","Mastodonte genio"]
 const multiplotres=(n:number):boolean=>{
     console.log(n) /* 1 2 3 4 5 6 porque ninguno se cumple entonces nunca se para 
@@ -24,10 +24,10 @@ const tamaniomayorcuatro=(p:string):boolean=>{
     console.log(p) //cuando se cumpla parara y el ultimo sera el que cumple el criterio
     return p.length >4
 }
-const hayunmultiplo=arr.some(multiplotres) //1 2 3 4 5 6
+const hayunmultiplo=arrr.some(multiplotres) //1 2 3 4 5 6
 console.log(hayunmultiplo) // false
 console.log("")
-const mayoresdos=arr.some(mayordos) // 1 2 3
+const mayoresdos=arrr.some(mayordos) // 1 2 3
 console.log(mayoresdos) //true
 console.log("")
 const palamabramayorcuatro=pala.some(tamaniomayorcuatro)// hola , buenos dias
