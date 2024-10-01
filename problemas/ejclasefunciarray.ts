@@ -45,6 +45,7 @@ const palabrasLargas = nombre.reduce((acc: string[], curr: string) => {
     }
     return acc;
 }, []); 
+//console.log(palabrasLargas)
 
 // sumar todos los numeros de un array
 let sumaarray=numerosmuchos.reduce((acc,valoractual)=>{
@@ -72,8 +73,8 @@ let numeropares=numerosmuchos.reduce((acc,valoractual)=>{
 
 let nummaximo=numerosmuchos.reduce((acc,valoractual)=>{
     if(valoractual>acc){
-        acc=valoractual
-        return acc
+        //acc=valoractual
+        return valoractual
     }
     return acc
 },0)
@@ -97,6 +98,6 @@ let numapacadanomb=nombre.reduce((acc,valoractual)=>{
    return acc
 },{})
 
-console.log(numapacadanomb)
+//console.log(numapacadanomb)
 
 //

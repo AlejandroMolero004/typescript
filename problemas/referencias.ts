@@ -77,7 +77,7 @@ console.log(enemy)
 
 
 
-
+/*
 type persona={
     nombre:string
     trabajo:string
@@ -136,6 +136,78 @@ console.log("amigos de copialexdiferente: /n")
 copialexdiferente.amigos.forEach(e => {
     console.log(e.nombre)
 });
+*/
+
+type Usuario = {
+    id: number;
+    nombre: string;
+    edad: number;
+    contactos:Usuario[]
+};
+let pablo:Usuario={
+    id:1,
+    nombre:"Pablo",
+    edad:12,
+    contactos:[]
+};
+
+let illojuan:Usuario = {
+    id: 3,
+    nombre: "Juan",
+    edad: 18,
+    contactos:[]
+};
+let vegeta:Usuario = {
+    id: 3,
+    nombre: "samuel",
+    edad: 18,
+    contactos:[]
+};
+const laura = {
+    id: 6,
+    nombre: "Laura",
+    edad: 19,
+    contactos: []
+};
+
+const andres = {
+    id: 7,
+    nombre: "Andrés",
+    edad: 25,
+    contactos: []
+};
+let copiapablo:Usuario={
+    ...pablo,
+    contactos:[]
+}
+
+
+pablo.contactos.push(illojuan)
+pablo.contactos.push(laura)
+copiapablo.contactos.push(vegeta)
+copiapablo.contactos.push(andres)
+
+
+//console.log(pablo.contactos)
+//console.log(copiapablo.contactos)
+
+/*
+pablo.nombre="Jorge"
+console.log(pablo.nombre)
+console.log(pablo.contactos)
+console.log(copiapablo.nombre)
+console.log(copiapablo.contactos)
+*/
+
+copiapablo.contactos.pop();
+console.log(pablo.nombre)
+console.log(pablo.contactos)
+console.log(copiapablo.nombre)
+console.log(copiapablo.contactos)
+
+
+
+
 
 
 
