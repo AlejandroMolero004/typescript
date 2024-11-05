@@ -10,7 +10,7 @@ if(!MONGO_URL){
 }
 
 const cliente=new MongoClient(MONGO_URL)
-await cliente.connect();
+await cliente.connect();//esperamos a que se conecte 
 
 const db=cliente.db("libereria")
 

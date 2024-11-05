@@ -1,5 +1,6 @@
 import type { ObjectId } from "mongodb";
-
+// optional id hace que no tengas que poner tu el id 
+// o en _id poner _id?:ObjectId
 export type AutorModel={
     _id:ObjectId,
     nombre:string,
