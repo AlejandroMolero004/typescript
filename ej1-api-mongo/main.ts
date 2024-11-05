@@ -70,7 +70,13 @@ const handler = async (req: Request): Promise<Response> => {
       return new Response("no se ha encontrado el autor")
     }
   }
-
+  if(method==="POST"){
+    if(path=="/users"){
+    const autor:AutorModel= await req.json()
+    coleccionautores.insertOne(autor)
+    return new Response("duuuuuro")
+    }
+  }
 
 
   return new Response("metodo no encontrado")
