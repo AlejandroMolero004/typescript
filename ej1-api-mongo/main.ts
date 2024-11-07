@@ -1,4 +1,4 @@
-import {MongoClient}from "mongodb"
+import {MongoClient, ObjectId}from "mongodb"
 import type { AutorModel, LibroModel } from "./types.ts";
 import {frommodeltoauthor, frommodeltolibro} from "./utilities.ts"
 
@@ -56,7 +56,10 @@ const handler = async (req: Request): Promise<Response> => {
     if(path=="/libros"){
       const titulo=url.searchParams.get("titulo")
       if(titulo){
+        const libroDB=await coleccionlibros.find({titulo:titulo}).toArray()
+        const libro=await Promise.all(libroDB.map((l)=>frommodeltolibro(l)))
         coleccionlibros.deleteOne({titulo:titulo})
+        coleccionautores.deleteOne({escritos:libro[0].id})
         return new Response("libro eliminado")
       }
       return new Response("no se ha encontrado el libro")
@@ -72,12 +75,60 @@ const handler = async (req: Request): Promise<Response> => {
   }
   if(method==="POST"){
     if(path=="/users"){
-    const autor:AutorModel= await req.json()
-    coleccionautores.insertOne(autor)
-    return new Response("duuuuuro")
+    const autor= await req.json()
+    if(!autor.nombre||!autor.fechaNacimiento||!autor.nacionalidad||!autor.escritos){
+        return new Response("BAD RQUEST",{status:400})
+    }
+    const autordb=await coleccionautores.findOne({nombre:autor.nombre})
+    if(!autordb){ 
+      const{insertedId}=await coleccionautores.insertOne({
+      nombre:autor.nombre,
+      fechaNacimiento:autor.fechaNacimiento,
+      nacionalidad:autor.nacionalidad,
+      escritos:[]
+      })
+      return new Response("Insertado")
+    }
+    else{
+    return new Response("User already exists",{status:409})
+    }
+    }
+    if(path=="/books"){
+      const book= await req.json()
+
+      if(!book.titulo||!book.titulo||!book.fechaPublicacion||!book.categoria){
+        return new Response("BAD RQUEST",{status:400})
+      }
+      const bookDB=await coleccionlibros.findOne({titulo:book.titulo})
+      if(bookDB===null){
+        console.log("lo voy a insertar")
+        const{insertedId}=await coleccionlibros.insertOne({ 
+          titulo: book.titulo,
+          categoria:book.categoria,
+          fechaPublicacion:book.fechaPublicacion
+        })
+        return new Response(`Libro insertado con ID ${insertedId}`, { status: 201 });
+      }
+      else{
+        return new Response("ya hay uno")
+      }     
     }
   }
-
+  if(method==="PUT"){
+    if(path=="/users"){
+    const autor= await req.json()
+    if(!autor.nombre||!autor.fechaNacimiento||!autor.nacionalidad||!autor.escritos){
+        return new Response("BAD RQUEST",{status:400})
+    }
+    const { modifiedCount } = await coleccionautores.updateOne(
+      { nombre: autor.nombre},
+      { $set: { nombre: autor.nombre, fechaNacimiento:autor.fechaNacimiento,nacionalidad:autor.nacionalidad, escritos: autor.escritos } }
+    );
+    return new Response("usuario modificado")
+    }
+   
+    
+  }
 
   return new Response("metodo no encontrado")
 }
