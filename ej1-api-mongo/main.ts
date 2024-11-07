@@ -126,6 +126,17 @@ const handler = async (req: Request): Promise<Response> => {
     );
     return new Response("usuario modificado")
     }
+    if(path=="/books"){
+      const book=await req.json()
+      if(!book.titulo||!book.categoria||!book.fechaPublicacion){
+        return new Response("BAD RQUEST",{status:400})
+      }
+      const {modifiedCount}=await coleccionlibros.updateOne(
+        {titulo:book.titulo},
+        {$set:{titulo:book.titulo,categoria:book.categoria,fechaPublicacion:book.fechaPublicacion}}
+      );
+      return new Response("libro modificado")
+    }
    
     
   }
